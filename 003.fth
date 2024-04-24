@@ -1,0 +1,4 @@
+: divide 2DUP MOD 0 = IF BEGIN DUP ROT SWAP / SWAP 2DUP MOD 0 > UNTIL DROP ELSE DROP THEN ;
+: euler003 600851475143 DUP 3 do I divide DUP I I * < IF LEAVE THEN 2 +loop . CR ;
+euler003
+bye
