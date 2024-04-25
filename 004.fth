@@ -1,0 +1,4 @@
+: reverse 0 SWAP BEGIN 10 /MOD SWAP ROT 10 * + SWAP DUP 1 < UNTIL + ;
+: euler004 0 1000 100 DO 1000 I DO I J * DUP DUP reverse = IF MAX ELSE DROP THEN LOOP LOOP . CR ;
+euler004
+bye
