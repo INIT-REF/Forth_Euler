@@ -1,0 +1,4 @@
+: gcd BEGIN DUP WHILE TUCK MOD REPEAT DROP ;
+: euler005 1 21 2 DO I 2DUP gcd */ LOOP . CR ;
+euler005
+bye
