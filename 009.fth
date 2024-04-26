@@ -1,21 +1,17 @@
-: triplet DUP 2OVER ROT + + SWAP 2SWAP 2DUP + 2SWAP + ROT DROP ;
-: dickson 
-    DUP 1 DO 
-        DUP 2DUP * 2/ DUP I MOD 0 =
+: triplet >R >R DUP DUP R@ + SWAP R> + R@ + ROT R> + DUP 2OVER ROT ; 
+: dickson DUP 1 DO 
+    DUP 2DUP * 2/ DUP I MOD 0 = 
+    IF 
+        I SWAP I / triplet + + 1000 = 
         IF 
-            I SWAP I / ROT >R triplet DUP 2OVER ROT + + 1000 =
-            IF
-                * * . R>
-            ELSE
-                DROP 2DROP R> 
-            THEN
+            * * . CR LEAVE 
         ELSE 
-            2DROP 
+            DROP 2DROP 
         THEN 
-    LOOP 
-    DROP 
-;
+    ELSE 
+        2DROP 
+    THEN 
+LOOP DROP ;
 : euler009 1000 2 DO I dickson 2 +LOOP ;
 euler009
-CR
 bye
